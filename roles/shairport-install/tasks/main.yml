@@ -48,3 +48,10 @@
     - "./configure --sysconfdir=/etc --with-alsa --with-soxr --with-avahi --with-ssl=openssl --with-systemd"
     - "make"
     - "make install"
+
+- name: reload the systemd daemon
+  ansible.builtin.systemd:
+    daemon_reload: yes
+    name: shairport-sync
+    enabled: yes
+    state: started
