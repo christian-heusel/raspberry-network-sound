@@ -1,0 +1,5 @@
+---
+- name: shairport setup
+  hosts: raspberrys
+  roles:
+    - shairport
