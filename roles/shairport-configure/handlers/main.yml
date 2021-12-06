@@ -1,2 +1,8 @@
 ---
 # handlers file for shairport-configure
+
+- name: restart the shairport service
+  ansible.builtin.systemd:
+    name: shairport-sync
+    state: restarted
+  listen: restart_shairport

@@ -2,6 +2,7 @@
 # tasks file for shairport-configure
 
 - name: copy the shairport config file
-  ansible.builtin.template:
+  ansible.builtin.copy:
     src: "shairport-sync.conf"
     dest: "{{ shairport_conf_path }}"
+  notify: restart_shairport
