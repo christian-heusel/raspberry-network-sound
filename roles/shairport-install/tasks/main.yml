@@ -49,6 +49,13 @@
     - "make"
     - "make install"
 
+- name: create the shairport dir
+  ansible.builtin.file:
+    path: "/home/shairport-sync/.config/pulse"
+    state: directory
+    mode: '0755'
+    owner: shairport-sync
+
 - name: reload the systemd daemon
   ansible.builtin.systemd:
     daemon_reload: yes
