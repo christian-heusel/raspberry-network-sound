@@ -1,0 +1,7 @@
+---
+# tasks file for shairport-configure
+
+- name: copy the shairport config file
+  ansible.builtin.template:
+    src: "shairport-sync.conf"
+    dest: "{{ shairport_conf_path }}"
