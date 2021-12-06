@@ -1,5 +1,0 @@
----
-# tasks file for shairport
-
-- name: install shairport
-  include_tasks: install.yml

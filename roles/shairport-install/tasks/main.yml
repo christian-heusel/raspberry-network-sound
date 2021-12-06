@@ -23,9 +23,28 @@
     - "/etc/dbus-1/system.d/shairport-sync-dbus.conf"
     - "/etc/dbus-1/system.d/shairport-sync-mpris.conf"
 
+- name: update apt cache
+  ansible.builtin.apt:
+    update_cache: yes
+
 - name: install build dependencies
   ansible.builtin.apt:
-    name: "{{ item }}"
-    update_cache: yes
+    name: "{{ shairport_build_deps }}"
     state: present
-  with_items: "{{ shairport_build_deps }}"
+
+- name: clone the repository
+  ansible.builtin.git:
+    repo: "{{ shairport_git_url }}"
+    dest: "{{ shairport_build_dir }}"
+    update: true
+    accept_hostkey: true
+
+- name: build the project
+  ansible.builtin.command:
+    cmd: "{{ item }}"
+    chdir: "{{ shairport_build_dir }}"
+  with_items:
+    - "autoreconf -fi"
+    - "./configure --sysconfdir=/etc --with-alsa --with-soxr --with-avahi --with-ssl=openssl --with-systemd"
+    - "make"
+    - "make install"

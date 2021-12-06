@@ -1,5 +1,5 @@
 ---
-# defaults file for shairport
+# defaults file for shairport-install
 shairport_build_deps:
   - autoconf
   - automake
@@ -14,3 +14,6 @@ shairport_build_deps:
   - libssl-dev
   - libtool
   - xmltoman
+
+shairport_git_url: https://github.com/mikebrady/shairport-sync.git
+shairport_build_dir: /opt/shairport-source
