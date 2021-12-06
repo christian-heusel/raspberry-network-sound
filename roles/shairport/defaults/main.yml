@@ -1,0 +1,16 @@
+---
+# defaults file for shairport
+shairport_build_deps:
+  - autoconf
+  - automake
+  - avahi-daemon
+  - build-essential
+  - git
+  - libasound2-dev
+  - libavahi-client-dev
+  - libconfig-dev
+  - libpopt-dev
+  - libsoxr-dev
+  - libssl-dev
+  - libtool
+  - xmltoman
