@@ -3,3 +3,4 @@
   hosts: raspberrys
   roles:
     - shairport-install
+    - sven-install

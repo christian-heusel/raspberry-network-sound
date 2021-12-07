@@ -1,0 +1,4 @@
+---
+# tasks file for sven-install
+- name: get the audio shield to work
+  include_tasks: audioshield.yml

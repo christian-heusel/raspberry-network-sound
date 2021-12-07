@@ -1,0 +1,17 @@
+---
+#
+# Taken from here and the old config:
+# https://wiki.elvis.science/index.php?title=Raspberry_Pi:_Hifiberry_DAC%2B
+#
+
+- name: disable regular audio
+  ansible.builtin.lineinfile:
+    path: /boot/config.txt
+    line: dtparam=audio=on
+    state: absent
+
+- name: enable audio via shield
+  ansible.builtin.lineinfile:
+    path: /boot/config.txt
+    line: dtoverlay=hifiberry-dacplus
+    state: present
